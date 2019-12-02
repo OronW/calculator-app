@@ -6,13 +6,13 @@ import {InterCalculator} from '../interfaces/InterCalculator';
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.sass']
 })
-export class CalculatorComponent implements InterCalculator { // TODO: Check replacing with switch
+export class CalculatorComponent implements InterCalculator { // TODO: Check replacing interface with switch
 
-  buttons: string[] = ['7', '8', '9', '/' +
-                       '4', '5', '6', '*' +
-                       '1', '2', '3', '-' +
-                       '.', '0', '=', '+' ];
-
+  numpadNumbers: string[] = ['7', '8', '9', '/',
+                             '4', '5', '6', '*',
+                             '1', '2', '3', '-',
+                             '.', '0', '=', '+' ];
+  clearBtn = ['Clear'];
   add(a: number, b: number): number {
     return (a + b);
   }

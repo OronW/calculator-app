@@ -4,10 +4,9 @@
     <input class="result" type="text" readonly value="{{ result }}">
   </div>
   <div>
-    <button class="clearButton" *ngFor="let longButton of clearBtn">
+    <button class="clearButton" *ngFor="let longButton of clearBtn" (click)="addToExpression(longButton)">
       {{ longButton }}
     </button>
-
     <button class="numpad" *ngFor="let button of numpadNumbers" (click)="addToExpression(button)">
       {{ button }}
     </button>

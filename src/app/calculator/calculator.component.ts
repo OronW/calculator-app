@@ -8,7 +8,7 @@ import {InterCalculator} from '../interfaces/InterCalculator';
 })
 export class CalculatorComponent implements InterCalculator { // TODO: Check replacing interface with switch
 
-  result: string = ' ';
+  result: string = '';
   numpadNumbers: string[] = ['7', '8', '9', '/',
                              '4', '5', '6', '*',
                              '1', '2', '3', '-',
@@ -31,11 +31,18 @@ export class CalculatorComponent implements InterCalculator { // TODO: Check rep
   }
 
   addToExpression(value: string) {
-    if (value === '=') {
+    if (value == 'Clear') {
       // let ans: number = this.sub(12, 3);
       // let an: string = ans.toString();
       // let splitedArr = value.split('-');
-    } else {
+      this.result = '';
+    }
+    else if (value == '=') {
+      if (this.result.includes('+', 0)) {
+        this.result = this.add(12, 7).toString();
+      }
+    }
+    else {
         this.result += value;
       }
   }

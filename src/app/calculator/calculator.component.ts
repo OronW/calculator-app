@@ -37,9 +37,15 @@ export class CalculatorComponent implements InterCalculator { // TODO: Check rep
       // let splitedArr = value.split('-');
       this.result = '';
     }
+
     else if (value == '=') {
       if (this.result.includes('+', 0)) {
-        this.result = this.add(12, 7).toString();
+        let splitted = this.result.split('+');
+        this.result = this.add(Number(splitted[0]), Number(splitted[1])).toString();
+      }
+
+      else if (this.result.includes('-', 0)) {
+        this.result = this.sub(39, 5).toString();
       }
     }
     else {

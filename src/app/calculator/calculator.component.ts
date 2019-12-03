@@ -32,24 +32,27 @@ export class CalculatorComponent implements InterCalculator { // TODO: Check rep
 
   addToExpression(value: string) {
     if (value == 'Clear') {
-      // let ans: number = this.sub(12, 3);
-      // let an: string = ans.toString();
-      // let splitedArr = value.split('-');
       this.result = '';
-    }
-
-    else if (value == '=') {
-      if (this.result.includes('+', 0)) {
-        let splitted = this.result.split('+');
-        this.result = this.add(Number(splitted[0]), Number(splitted[1])).toString();
-      }
-
-      else if (this.result.includes('-', 0)) {
-        this.result = this.sub(39, 5).toString();
-      }
-    }
-    else {
+    } else if (value == '=') {
+        if (this.result.includes('+', 0)) {
+          let splitted = this.result.split('+');
+          this.result = this.add(Number(splitted[0]), Number(splitted[1])).toString();
+        }
+        else if (this.result.includes('-', 0)) {
+          let splitted = this.result.split('-');
+          this.result = this.sub(Number(splitted[0]), Number(splitted[1])).toString();
+        }
+        else if (this.result.includes('*', 0)) {
+          let splitted = this.result.split('*');
+          this.result = this.mul(Number(splitted[0]), Number(splitted[1])).toString();
+        }
+        else if (this.result.includes('/', 0)) {
+          let splitted = this.result.split('/');
+          this.result = this.div(Number(splitted[0]), Number(splitted[1])).toString();
+        }
+    } else {
         this.result += value;
-      }
+    }
   }
+
 }

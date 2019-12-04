@@ -36,35 +36,38 @@ export class CalculatorComponent implements InterCalculator { // TODO: Check rep
     if (value === 'Clear') {
       this.result = '';
     }
-    else if ((['+', '-', '*', '/'].indexOf(value) >= 0) &&    // refine the code
+    else if ((['+', '-', '*', '/'].indexOf(value) >= 0) &&    // don't allow multiple operators. refined code
              (['+', '-', '*', '/'].indexOf(this.result[this.result.length - 1]) >= 0)) {
-      this.result = this.result.slice(0, -1);
+      this.result = this.result.slice(0, -1);                 // use only the last operator
       this.result += value;
-
-      // else if (((value === '+') || (value === '-') || (value === '*') || (value === '/')) &&
-      // ((this.result[this.result.length - 1] === '+') || (this.result[this.result.length - 1] === '-') ||
-      // (this.result[this.result.length - 1] === '*') || (this.result[this.result.length - 1] === '/'))) {
     }
-    else if (value === '=') {
-        if (this.result.includes('+', 0)) {
-          let splitted = this.result.split('+');
-          this.result = this.add(Number(splitted[0]), Number(splitted[1])).toString();
-        }
-        else if (this.result.includes('-', 0)) {
-          let splitted = this.result.split('-');
-          this.result = this.sub(Number(splitted[0]), Number(splitted[1])).toString();
-        }
-        else if (this.result.includes('*', 0)) {
-          let splitted = this.result.split('*');
-          this.result = this.mul(Number(splitted[0]), Number(splitted[1])).toString();
-        }
-        else if (this.result.includes('/', 0)) {
-          let splitted = this.result.split('/');
-          this.result = this.div(Number(splitted[0]), Number(splitted[1])).toString();
-        }
-        this.opFlag = false;
-    } else {
-        this.result += value;
+    else if ((value === '=') ||
+            ((['+', '-', '*', '/'].indexOf(value) >= 0) && (this.opFlag === true))) { // allow only one operation at a time
+      if (this.result.includes('+', 0)) {
+        let splitted = this.result.split('+');
+        this.result = this.add(Number(splitted[0]), Number(splitted[1])).toString();
+      }
+      else if (this.result.includes('-', 0)) {
+        let splitted = this.result.split('-');
+        this.result = this.sub(Number(splitted[0]), Number(splitted[1])).toString();
+      }
+      else if (this.result.includes('*', 0)) {
+        let splitted = this.result.split('*');
+        this.result = this.mul(Number(splitted[0]), Number(splitted[1])).toString();
+      }
+      else if (this.result.includes('/', 0)) {
+        let splitted = this.result.split('/');
+        this.result = this.div(Number(splitted[0]), Number(splitted[1])).toString();
+      }
+      if (value === '=') { this.opFlag = false; } // if value is "=", reset condition
+      else { this.result += value; }              // else, continue with next operation
+      // if (this.opFlag === true) {this.result += value;} - replaced by the above else
+    }
+    else {
+      this.result += value;
+      if (['+', '-', '*', '/'].indexOf(this.result[this.result.length - 1]) >= 0) {
+        this.opFlag = true;
+      }
     }
   }
 

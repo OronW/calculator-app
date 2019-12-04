@@ -40,7 +40,7 @@ describe('AppComponent', () => {
 
   it('should calculate the expression', () => {
     const calculatorTest = new CalculatorComponent();
-    const ans =  calculatorTest.checkNewExpression('=')
+    const ans =  calculatorTest.checkNewExpression('=');
     expect(ans).toBeFalsy();
   });
 

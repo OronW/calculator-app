@@ -13,3 +13,9 @@ It's possible to continue calculation after a result had been showed. simply cho
 If a number will be entered after a resuly is showen - the expression will be reseted.
 
 ![Image of preview of the app](https://github.com/OronW/calculator-app/blob/master/printScreen/App%20preview.png?raw=true)
+
+
+some KARMA testings were created for this app, and passed:
+![Image of preview of the app](https://github.com/OronW/calculator-app/blob/master/printScreen/KARMA%20tests.jpg?raw=true)
+
+

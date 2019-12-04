@@ -22,15 +22,15 @@ export class CalculatorComponent implements InterCalculator {
   mul(a: number, b: number): number { return (a * b); }
   sub(a: number, b: number): number { return (a - b); }
 
-  checkOpInString(str: string): number {            // check if a string contains an operation
-    return (['+', '-', '*', '/'].indexOf(str) >= 0 ) ? 1 : 0;
+  checkOpInString(str: string): boolean {            // check if a string contains an operation
+    return (['+', '-', '*', '/'].indexOf(str) >= 0 );
   }
 
   forceOneOperationOnly(value: string): boolean {  // allow only one operation at a time
     return ((value === '=') || (this.checkOpInString(value) && (this.opFlag === true)));
   }
 
-  checkMultipleOperations(value: string): number {  // don't allow multiple operators.
+  checkMultipleOperations(value: string): boolean {  // don't allow multiple operators.
     return (this.checkOpInString(value) && (this.result.length > 0) && (this.checkOpInString(this.result[this.result.length - 1]))) ;
   }
 
@@ -62,12 +62,10 @@ export class CalculatorComponent implements InterCalculator {
     if (value === 'Clear') {
       this.result = '';
     }
-
     else if (this.checkMultipleOperations(value)) {   // don't allow multiple operators. refined code
       this.result = this.result.slice(0, -1);         // use only the last operator
       this.result += value;
     }
-
     else if (this.forceOneOperationOnly(value))  {          // allow only one operation at a time
       this.result = this.calculateExpression(this.result);  // return the result of the operation
       if (value === '=') {                                  // if value was "=", reset operation flag
@@ -76,7 +74,6 @@ export class CalculatorComponent implements InterCalculator {
       }
       else { this.result += value; }                        // else, continue with next operation
     }
-
     else {
       if (this.checkIfLegal(value)) {
         this.result = 'Enter a number first';

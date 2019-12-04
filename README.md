@@ -11,11 +11,14 @@ If more then one operation is selected - only the last one will be performed.
 
 It's possible to continue calculation after a result had been showed. simply choose the next operation, and input another number.
 If a number will be entered after a resuly is showen - the expression will be reseted.
+------------------------------------------------------------------------------------------------------
+Preview of the app:
 
 ![Image of preview of the app](https://github.com/OronW/calculator-app/blob/master/printScreen/App%20preview.png?raw=true)
 
+-----------------------------------------------------------------------------------------------------
+Some KARMA testings were created for this app, and passed:
 
-some KARMA testings were created for this app, and passed:
 ![Image of preview of the app](https://github.com/OronW/calculator-app/blob/master/printScreen/KARMA%20tests.jpg?raw=true)
 
 

@@ -9,6 +9,7 @@ import {InterCalculator} from '../interfaces/InterCalculator';
 })
 export class CalculatorComponent implements InterCalculator { // TODO: Check replacing operation function with switch
   opFlag: boolean = false;
+  startFlag: boolean = false;
   result: string = '';
   numpadNumbers: string[] = ['7', '8', '9', '/',
                              '4', '5', '6', '*',
@@ -66,7 +67,17 @@ export class CalculatorComponent implements InterCalculator { // TODO: Check rep
       else { this.result += value; }              // else, continue with next operation
     }
     else {
-      this.result += value;
+      if (this.checkOpInString(value) && ((this.result.length === 0) || (this.startFlag === true))) {
+        this.result = 'Enter a number first';
+        this.startFlag = true;
+      }
+      else {
+        if (this.startFlag === true) {  // reset result ONLY if expression started with an operation
+          this.result = '';
+          this.startFlag = false;
+        }
+        this.result += value;
+      }
       if (this.checkOpInString(this.result[this.result.length - 1])) {
         this.opFlag = true;
       }

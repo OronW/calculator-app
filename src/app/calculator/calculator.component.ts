@@ -31,18 +31,21 @@ export class CalculatorComponent implements InterCalculator { // TODO: Check rep
     return (a - b);
   }
 
-  addToExpression(value: string) {
+  checkOpInString(str: string): number {   // check if a string contains an operation
+    if (['+', '-', '*', '/'].indexOf(str) >= 0 ) {
+      return 1;
+    }
+  }
 
+  addToExpression(value: string) {
     if (value === 'Clear') {
       this.result = '';
     }
-    else if ((['+', '-', '*', '/'].indexOf(value) >= 0) &&    // don't allow multiple operators. refined code
-             (['+', '-', '*', '/'].indexOf(this.result[this.result.length - 1]) >= 0)) {
-      this.result = this.result.slice(0, -1);                 // use only the last operator
+    else if (this.checkOpInString(value) && this.checkOpInString(this.result[this.result.length - 1])) { // don't allow multiple operators. refined code
+      this.result = this.result.slice(0, -1);   // use only the last operator
       this.result += value;
     }
-    else if ((value === '=') ||
-            ((['+', '-', '*', '/'].indexOf(value) >= 0) && (this.opFlag === true))) { // allow only one operation at a time
+    else if ((value === '=') || (this.checkOpInString(value) && (this.opFlag === true))) { // allow only one operation at a time
       if (this.result.includes('+', 0)) {
         let splitted = this.result.split('+');
         this.result = this.add(Number(splitted[0]), Number(splitted[1])).toString();
@@ -59,13 +62,12 @@ export class CalculatorComponent implements InterCalculator { // TODO: Check rep
         let splitted = this.result.split('/');
         this.result = this.div(Number(splitted[0]), Number(splitted[1])).toString();
       }
-      if (value === '=') { this.opFlag = false; } // if value is "=", reset condition
+      if (value === '=') { this.opFlag = false; } // if value was "=", reset condition
       else { this.result += value; }              // else, continue with next operation
-      // if (this.opFlag === true) {this.result += value;} - replaced by the above else
     }
     else {
       this.result += value;
-      if (['+', '-', '*', '/'].indexOf(this.result[this.result.length - 1]) >= 0) {
+      if (this.checkOpInString(this.result[this.result.length - 1])) {
         this.opFlag = true;
       }
     }

@@ -11,6 +11,7 @@ If more then one operation is selected - only the last one will be performed.
 
 It's possible to continue calculation after a result had been showed. simply choose the next operation, and input another number.
 If a number will be entered after a resuly is showen - the expression will be reseted.
+
 ------------------------------------------------------------------------------------------------------
 Preview of the app:
 

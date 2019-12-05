@@ -1,27 +1,32 @@
-# CalculatorApp
+# CalculatorApp - By Oron Werner
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
-## Development server
+It was Created by Oron Werner, using Angular 8 and WebStorm IDE.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The app calculates all numbers, using the four basic mathematical operations - add, subtract, multiply and divide.
+It refuses to receive invalid expressions, such as starting an expression with an operation or trying to use more then one operation before the second number.
 
-## Code scaffolding
+If more then one operation is selected - only the last one will be performed.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+It's possible to continue calculation after a result had been showed. simply choose the next operation, and input another number.
+If a number will be entered after a resuly is showen - the expression will be reseted.
 
-## Build
+------------------------------------------------------------------------------------------------------
+Preview of the app:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+![Image of preview of the app](https://github.com/OronW/calculator-app/blob/oron-calculator/printScreen/App%20preview.png)
 
-## Running unit tests
+-----------------------------------------------------------------------------------------------------
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Hover function over buttons change the colors:
 
-## Running end-to-end tests
+![Image of preview of the app](https://github.com/OronW/calculator-app/blob/oron-calculator/printScreen/hover.png)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+-----------------------------------------------------------------------------------------------------
 
-## Further help
+Some KARMA testings were created for this app, and passed:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Image of preview of the app](https://github.com/OronW/calculator-app/blob/oron-calculator/printScreen/KARMA%20tests.jpg)
+
+

@@ -15,18 +15,18 @@ If a number will be entered after a resuly is showen - the expression will be re
 ------------------------------------------------------------------------------------------------------
 Preview of the app:
 
-![Image of preview of the app](https://github.com/OronW/calculator-app/blob/master/printScreen/App%20preview.png?raw=true)
+![Image of preview of the app](https://github.com/OronW/calculator-app/blob/oron-calculator/printScreen/App%20preview.png)
 
 -----------------------------------------------------------------------------------------------------
 
 Hover function over buttons change the colors:
 
-![Image of preview of the app](https://github.com/OronW/calculator-app/blob/master/printScreen/hover.png?raw=true)
+![Image of preview of the app](https://github.com/OronW/calculator-app/blob/oron-calculator/printScreen/hover.png)
 
 -----------------------------------------------------------------------------------------------------
 
 Some KARMA testings were created for this app, and passed:
 
-![Image of preview of the app](https://github.com/OronW/calculator-app/blob/master/printScreen/KARMA%20tests.jpg?raw=true)
+![Image of preview of the app](https://github.com/OronW/calculator-app/blob/oron-calculator/printScreen/KARMA%20tests.jpg)
 
 
